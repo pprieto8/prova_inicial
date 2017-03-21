@@ -3,32 +3,42 @@
 pandoc  \
 	--from markdown \
 	--to html \
-	--output attach.xhtml \
+	--output attach.html \
 	--standalone \
+	--template=template_pandoc.html \
 	attach.md
+
 
 pandoc  \
 	--from markdown \
 	--to html \
-	--output build.xhtml \
+	--output build.html \
 	--standalone \
+	--template=template_pandoc.html \
 	build.md
 	
 pandoc  \
 	--from markdown \
 	--to html \
-	--output cli.xhtml \
+	--output cli.html \
 	--standalone \
+	--template=template_pandoc.html \
 	cli.md
 
 xmllint \
 	--noout \
-	--valid attach.xhtml
+	--valid attach.html
 
 xmllint \
 	--noout \
-	--valid cli.xhtml
+	--valid cli.html
 	
 xmllint \
 	--noout \
-	--valid build.xhtml
+	--valid build.html
+
+TARGET=/home/users/inf/hisx2/isx47946514/gitlab/pprieto8.github.io/
+
+cp -u attach.html build.html cli.html $TARGET
+
+
